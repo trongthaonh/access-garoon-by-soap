@@ -178,6 +178,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="389" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="fnh-eT-elO" kind="presentation" identifier="presidentSegue" modalPresentationStyle="formSheet" id="F3r-gu-BQc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1183,8 +1186,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y0e-i4-KoM">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y0e-i4-KoM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lhp-7P-sZl" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="272"/>
@@ -1249,10 +1252,10 @@
                                             <constraint firstItem="inP-od-Rz3" firstAttribute="trailing" secondItem="Afn-RQ-FdG" secondAttribute="leading" constant="-8" id="Bft-jE-22Y"/>
                                             <constraint firstItem="SXo-NS-tBa" firstAttribute="top" secondItem="qvp-Zx-6PQ" secondAttribute="bottom" constant="14" id="Btg-Db-XYB"/>
                                             <constraint firstItem="cjg-cT-0mH" firstAttribute="top" secondItem="Afn-RQ-FdG" secondAttribute="bottom" constant="8" id="F5K-sA-2Uj"/>
-                                            <constraint firstItem="SXo-NS-tBa" firstAttribute="bottom" secondItem="lhp-7P-sZl" secondAttribute="bottom" constant="-8" id="GLH-QQ-fYx"/>
                                             <constraint firstItem="inP-od-Rz3" firstAttribute="top" secondItem="lhp-7P-sZl" secondAttribute="top" constant="11" id="JkC-YH-alr"/>
                                             <constraint firstItem="Afn-RQ-FdG" firstAttribute="top" secondItem="lhp-7P-sZl" secondAttribute="top" constant="8" id="M37-a1-2na"/>
                                             <constraint firstItem="Q6a-2U-Vbi" firstAttribute="leading" secondItem="qvp-Zx-6PQ" secondAttribute="trailing" constant="8" id="MHY-ii-mO3"/>
+                                            <constraint firstAttribute="bottom" secondItem="SXo-NS-tBa" secondAttribute="bottom" constant="8" id="Qco-MC-z4o"/>
                                             <constraint firstItem="qvp-Zx-6PQ" firstAttribute="leading" secondItem="lhp-7P-sZl" secondAttribute="leading" constant="8" id="RpH-LF-jdp"/>
                                             <constraint firstItem="qvp-Zx-6PQ" firstAttribute="top" secondItem="3NH-e0-Rab" secondAttribute="bottom" constant="17" id="XFY-st-xoG"/>
                                             <constraint firstItem="cjg-cT-0mH" firstAttribute="trailing" secondItem="lhp-7P-sZl" secondAttribute="trailing" constant="-8" id="YdQ-4N-aq4"/>
@@ -1274,24 +1277,34 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="lhp-7P-sZl" firstAttribute="top" secondItem="Y0e-i4-KoM" secondAttribute="top" id="0Ww-aA-XKB"/>
-                                    <constraint firstAttribute="bottom" secondItem="lhp-7P-sZl" secondAttribute="bottom" id="UZs-9v-8NC"/>
                                     <constraint firstItem="lhp-7P-sZl" firstAttribute="leading" secondItem="Y0e-i4-KoM" secondAttribute="leading" id="ge2-Jn-YnW"/>
-                                    <constraint firstAttribute="trailing" secondItem="lhp-7P-sZl" secondAttribute="trailing" id="q04-Lc-VLW"/>
+                                    <constraint firstItem="lhp-7P-sZl" firstAttribute="trailing" secondItem="Y0e-i4-KoM" secondAttribute="trailing" id="q04-Lc-VLW"/>
+                                    <constraint firstAttribute="bottom" secondItem="lhp-7P-sZl" secondAttribute="bottom" id="zk5-OC-RcF"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHY-ZP-0iB">
+                                <rect key="frame" x="277" y="550" width="46" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeAction:" destination="fnh-eT-elO" eventType="touchUpInside" id="Sot-Lp-g1b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lhp-7P-sZl" firstAttribute="height" secondItem="Xm4-oS-A3B" secondAttribute="height" priority="250" id="2eV-h1-K5p"/>
+                            <constraint firstItem="Y0e-i4-KoM" firstAttribute="bottom" secondItem="15s-7P-9uY" secondAttribute="top" id="7JV-jG-I9s"/>
                             <constraint firstItem="Y0e-i4-KoM" firstAttribute="leading" secondItem="Xm4-oS-A3B" secondAttribute="leading" id="C7I-Wf-gk2"/>
                             <constraint firstItem="lhp-7P-sZl" firstAttribute="width" secondItem="Xm4-oS-A3B" secondAttribute="width" id="P53-fr-I3o"/>
-                            <constraint firstItem="Y0e-i4-KoM" firstAttribute="bottom" secondItem="15s-7P-9uY" secondAttribute="top" id="VwX-F3-GJR"/>
                             <constraint firstItem="Y0e-i4-KoM" firstAttribute="top" secondItem="zic-PC-6m1" secondAttribute="bottom" id="hZc-4N-zEh"/>
                             <constraint firstItem="Y0e-i4-KoM" firstAttribute="trailing" secondItem="Xm4-oS-A3B" secondAttribute="trailing" id="jYY-nl-p4f"/>
+                            <constraint firstItem="hHY-ZP-0iB" firstAttribute="centerX" secondItem="Y0e-i4-KoM" secondAttribute="centerX" id="khS-L8-lha"/>
+                            <constraint firstItem="15s-7P-9uY" firstAttribute="top" secondItem="hHY-ZP-0iB" secondAttribute="bottom" constant="20" id="tc8-Ry-XCS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="_body" destination="SXo-NS-tBa" id="XJw-c1-YTJ"/>
+                        <outlet property="_close" destination="hHY-ZP-0iB" id="j7b-s9-DBb"/>
                         <outlet property="_date" destination="Afn-RQ-FdG" id="vvf-pH-4oe"/>
                         <outlet property="_from" destination="cjg-cT-0mH" id="kh9-Qv-JgR"/>
                         <outlet property="_subject" destination="Q6a-2U-Vbi" id="WPo-YN-Lz1"/>
@@ -1547,7 +1560,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qmt-Ep-06l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="727" y="-744"/>
+            <point key="canvasLocation" x="727" y="-1312"/>
         </scene>
         <!--Today-->
         <scene sceneID="JEy-My-SIn">
@@ -1577,12 +1590,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBs-TL-ftr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="-744"/>
+            <point key="canvasLocation" x="1555" y="-1312"/>
         </scene>
         <!--TodayContainer ViewController-->
         <scene sceneID="gMc-Ov-Aop">
             <objects>
-                <viewController title="TodayContainer ViewController" id="Q9l-Ku-yof" sceneMemberID="viewController">
+                <viewController title="TodayContainer ViewController" id="Q9l-Ku-yof" customClass="TodayContainerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YnU-FH-q2n"/>
                         <viewControllerLayoutGuide type="bottom" id="WhO-zB-4NS"/>
@@ -1594,25 +1607,25 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6v-5M-1VP" userLabel="Message View">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="300"/>
                                 <connections>
-                                    <segue destination="OFc-iE-xZa" kind="embed" id="zRs-to-vyL"/>
+                                    <segue destination="OFc-iE-xZa" kind="embed" identifier="embedMessage" id="zRs-to-vyL"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TVs-rb-1dd" userLabel="Report View">
                                 <rect key="frame" x="391" y="0.0" width="209" height="300"/>
                                 <connections>
-                                    <segue destination="4hu-0E-iRo" kind="embed" id="Cxr-0c-wGS"/>
+                                    <segue destination="4hu-0E-iRo" kind="embed" identifier="embedReport" id="Cxr-0c-wGS"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZk-cQ-HRE" userLabel="Workflow View">
                                 <rect key="frame" x="0.0" y="301" width="210" height="250"/>
                                 <connections>
-                                    <segue destination="DWE-95-UC4" kind="embed" id="Vyc-nB-n2l"/>
+                                    <segue destination="DWE-95-UC4" kind="embed" identifier="embedWorkflow" id="Vyc-nB-n2l"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIa-nn-9nn" userLabel="BBS View">
                                 <rect key="frame" x="211" y="301" width="389" height="250"/>
                                 <connections>
-                                    <segue destination="lKI-3d-C4u" kind="embed" id="bVa-oE-Ik5"/>
+                                    <segue destination="lKI-3d-C4u" kind="embed" identifier="embedBBS" id="DCn-ur-Kxl"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -1640,7 +1653,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wej-mS-bcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="727" y="16"/>
+            <point key="canvasLocation" x="727" y="20"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1851,8 +1864,8 @@
         <image name="report2" width="27" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PVX-x1-fYu"/>
-        <segue reference="7JX-lb-G5F"/>
         <segue reference="MpD-Mo-cby"/>
+        <segue reference="F3r-gu-BQc"/>
+        <segue reference="PVX-x1-fYu"/>
     </inferredMetricsTieBreakers>
 </document>

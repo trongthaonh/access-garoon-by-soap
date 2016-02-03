@@ -14,6 +14,7 @@
 @property (strong, atomic)    NSDictionary *_messageArray;
 @property (strong, atomic)    NSArray *_workflowArray;
 @property (strong, atomic)    NSDictionary *_bbsDictionary;
+@property (strong, atomic)    NSDictionary *_allUnreadArticleDictionary;
 @property (strong, atomic)    NSDictionary *_userProfile;
 
 @end
@@ -24,6 +25,7 @@
 @synthesize _messageArray;
 @synthesize _workflowArray;
 @synthesize _bbsDictionary;
+@synthesize _allUnreadArticleDictionary;
 @synthesize _userProfile;
 
 - (void)setupTabBar
@@ -50,14 +52,57 @@
 	}
 }
 
+- (int)setupUnreadArticles:(NSMutableDictionary *)dest src:(NSDictionary *)src
+{
+    int ret = 0, i;
+    NSArray *array = src[@"folder"];
+    NSMutableArray *destArray = [NSMutableArray array];
+
+    [dest setObject:src[@"title"] forKey:@"title"];
+    for(i = 0; i < [array count]; i++){
+        NSDictionary    *item = array[i];
+        if(item[@"article"] != nil){
+            if([item[@"unread"] boolValue]){
+                [destArray addObject:item];
+                ret++;
+            }
+        }else if(item[@"folder"]){
+            NSMutableDictionary *temp = [NSMutableDictionary dictionary];
+            int unread = 0;
+            if((unread = [self setupUnreadArticles:temp src:item]) > 0){
+                if([item[@"title"] isEqualToString:@"社長"]){
+                    NSMutableDictionary *item = [NSMutableDictionary dictionaryWithDictionary:[temp[@"folder"] objectAtIndex:0]];
+                    [item setObject:[NSNumber numberWithBool:YES] forKey:@"should_modal"];
+                    [temp[@"folder"] replaceObjectAtIndex:0 withObject:item];
+                    [destArray insertObjects:temp[@"folder"] atIndexes:[NSIndexSet indexSetWithIndex:0]];
+                }else{
+                    [destArray addObject:temp];
+                }
+                ret += unread;
+            }
+        }
+    }
+    if([destArray count] > 0){
+        [dest setObject:destArray forKey:@"folder"];
+        [dest setObject:[NSNumber numberWithInteger:ret] forKey:@"numberOfUnread"];
+    }
+    return(ret);
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSMutableDictionary *dest =[NSMutableDictionary dictionary];
     _reportArray = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ReportSample" ofType:@"plist"]];
     _messageArray = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"MessageSample" ofType:@"plist"]];
     _workflowArray = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"WorkflowSample" ofType:@"plist"]];
     _bbsDictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"BBSSample" ofType:@"plist"]];
     _userProfile = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserSample" ofType:@"plist"]];
     [self setupTabBar];
+    if([self setupUnreadArticles:dest src:_bbsDictionary] == 0){
+        [dest setObject:[NSArray array] forKey:@"folder"];
+    }
+    [dest setObject:NSLocalizedString(@"BBS", nil) forKey:@"title"];
+    _allUnreadArticleDictionary = dest;
     return YES;
 }
 
@@ -101,6 +146,11 @@
 -(NSDictionary *)allBBSFolder
 {
     return(_bbsDictionary);
+}
+
+-(NSDictionary *)allUnreadArticlesFolder
+{
+    return(_allUnreadArticleDictionary);
 }
 
 -(NSDictionary *)userProfile

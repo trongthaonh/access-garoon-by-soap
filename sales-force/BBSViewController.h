@@ -14,6 +14,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *_from;
 @property (weak, nonatomic) IBOutlet UITextField *_subject;
 @property (weak, nonatomic) IBOutlet UITextView *_body;
+@property (weak, nonatomic) IBOutlet UIButton *_close;
 @property (strong, nonatomic) NSDictionary *item;
+
+- (IBAction)closeAction:(id)sender;
 
 @end

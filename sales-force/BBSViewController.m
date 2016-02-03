@@ -9,7 +9,6 @@
 #import "BBSViewController.h"
 
 @interface BBSViewController ()
-
 @end
 
 @implementation BBSViewController
@@ -18,6 +17,7 @@
 @synthesize _from;
 @synthesize _subject;
 @synthesize _body;
+@synthesize _close;
 @synthesize item;
 
 - (void)viewDidLoad {
@@ -41,6 +41,11 @@
     _from.text = item[@"writtenby"];
     _subject.text = item[@"title"];
     _body.text = item[@"article"];
+    if(self.presentingViewController != nil){
+        [_close setHidden:NO];
+    }else{
+        [_close setHidden:YES];
+    }
 #if 0
     {
         CGRect frame = _body.frame;
@@ -53,6 +58,12 @@
 - (void)textViewDidChange:(UITextView *)textView
 {
 }
+
+- (IBAction)closeAction:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 /*
 #pragma mark - Navigation
 

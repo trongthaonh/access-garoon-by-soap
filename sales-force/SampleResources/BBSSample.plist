@@ -25,11 +25,11 @@
 					<key>title</key>
 					<string>平成28年新年のご挨拶</string>
 					<key>article</key>
-					<string></string>
+					<string>今年もほどほどに頑張りましょう</string>
 				</dict>
 				<dict>
 					<key>unread</key>
-					<true/>
+					<false/>
 					<key>date</key>
 					<string>2015-01-4 12:00:00</string>
 					<key>writtenby</key>
@@ -37,7 +37,7 @@
 					<key>title</key>
 					<string>平成27年新年のご挨拶</string>
 					<key>article</key>
-					<string></string>
+					<string>今年はほどほどに頑張りましょう</string>
 				</dict>
 			</array>
 		</dict>
@@ -62,7 +62,7 @@
 				</dict>
 				<dict>
 					<key>unread</key>
-					<true/>
+					<false/>
 					<key>date</key>
 					<string>2015-01-4 12:00:00</string>
 					<key>writtenby</key>
@@ -101,7 +101,7 @@
 				</dict>
 				<dict>
 					<key>unread</key>
-					<true/>
+					<false/>
 					<key>date</key>
 					<string>2015-01-4 12:00:00</string>
 					<key>writtenby</key>
@@ -126,7 +126,7 @@
 					<key>numberOfUnread</key>
 					<integer>0</integer>
 					<key>folder</key>
-					<dict/>
+					<array/>
 				</dict>
 				<dict>
 					<key>unread</key>
@@ -211,7 +211,7 @@
 					<array>
 						<dict>
 							<key>unread</key>
-							<string></string>
+							<false/>
 							<key>date</key>
 							<string>2015-10-01 12:00:00</string>
 							<key>writtenby</key>
@@ -232,7 +232,7 @@
 					<array>
 						<dict>
 							<key>unread</key>
-							<string></string>
+							<true/>
 							<key>date</key>
 							<string>2015-10-01 12:00:00</string>
 							<key>writtenby</key>
@@ -253,7 +253,7 @@
 					<array>
 						<dict>
 							<key>unread</key>
-							<string></string>
+							<true/>
 							<key>date</key>
 							<string>2015-10-01 12:00:00</string>
 							<key>writtenby</key>
@@ -269,7 +269,7 @@
 						</dict>
 						<dict>
 							<key>unread</key>
-							<string></string>
+							<true/>
 							<key>date</key>
 							<string>2015-10-01 12:00:00</string>
 							<key>writtenby</key>
@@ -299,7 +299,7 @@ sunachiさん、おひさしぶりです。
 						</dict>
 						<dict>
 							<key>unread</key>
-							<string></string>
+							<true/>
 							<key>date</key>
 							<string>2015-10-01 12:00:00</string>
 							<key>writtenby</key>
@@ -312,7 +312,7 @@ sunachiさん、おひさしぶりです。
 						</dict>
 						<dict>
 							<key>unread</key>
-							<string></string>
+							<false/>
 							<key>date</key>
 							<string>2015-10-01 12:00:00</string>
 							<key>writtenby</key>
@@ -343,7 +343,7 @@ http://www.34al.com/soundproof/
 						</dict>
 						<dict>
 							<key>unread</key>
-							<string></string>
+							<false/>
 							<key>date</key>
 							<string>2015-10-01 12:00:00</string>
 							<key>writtenby</key>
@@ -367,7 +367,7 @@ http://www.34al.com/soundproof/
 						</dict>
 						<dict>
 							<key>unread</key>
-							<string></string>
+							<false/>
 							<key>date</key>
 							<string>2015-10-01 12:00:00</string>
 							<key>writtenby</key>

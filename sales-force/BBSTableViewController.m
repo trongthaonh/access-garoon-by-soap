@@ -31,11 +31,26 @@
     [_tableView reloadData];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSDictionary    *item;
+    if([folder[@"folder"] count] > 0){
+        if((item = [folder[@"folder"] objectAtIndex:0]) != nil){
+            if(item[@"should_modal"] != nil){
+                [self performSegueWithIdentifier:@"presidentSegue" sender:self];
+            }
+        }
+    }
+}
+
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     BOOL    ret = NO;
     NSDictionary    *_tableItem = [folder[@"folder"] objectAtIndex:[_tableView indexPathForSelectedRow].row];
     if(_tableItem[@"article"] != nil){
+        ret = YES;
+    }
+    if([identifier isEqualToString:@"presidentSegue"]){
         ret = YES;
     }
     return(ret);
@@ -45,6 +60,9 @@
 {
     BBSViewController *viewController = segue.destinationViewController;
     NSDictionary    *_tableItem = [folder[@"folder"] objectAtIndex:[_tableView indexPathForSelectedRow].row];
+    if([segue.identifier isEqualToString:@"presidentSegue"]){
+        _tableItem = [folder[@"folder"] objectAtIndex:0];
+    }
     viewController.item = _tableItem;
 }
 

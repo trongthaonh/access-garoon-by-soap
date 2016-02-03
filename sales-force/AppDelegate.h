@@ -16,6 +16,7 @@
 -(NSDictionary *)allMessageDictionary;
 -(NSArray *)allWorkflowArray;
 -(NSDictionary *)allBBSFolder;
+-(NSDictionary *)allUnreadArticlesFolder;
 -(NSDictionary *)userProfile;
 
 @end
