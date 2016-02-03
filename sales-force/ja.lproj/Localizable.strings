@@ -1,0 +1,19 @@
+/*
+ Localizable.strings
+ sales-force
+ 
+ Created by kiss on 2016/02/01.
+ Copyright © 2016年 kiss. All rights reserved.
+ */
+"Message" = "メッセージ";
+"BBS" = "掲示板";
+"Inbox" = "受信トレイ";
+"Outbox" = "送信トレイ";
+"Draft" = "下書き";
+"Quata to %@" = "%@さんの目標";
+"Sales volumes are %@/%@(k JPY)" = "売上高 %@/%@(千円)";
+"Gross profits rate is %@%%/%@%%" = "粗利率 %@%%/%@%%";
+"Gross profits are %@/%@(k JPY)" = "粗利額 %@/%@(千円)";
+"Plan" = "計画";
+"Result" = "実績";
+"Rate" = "達成率";

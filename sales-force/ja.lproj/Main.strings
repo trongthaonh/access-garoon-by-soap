@@ -1,0 +1,57 @@
+
+/* Class = "UITabBarItem"; title = "Calender"; ObjectID = "7Lw-ds-efa"; */
+"7Lw-ds-efa.title" = "カレンダー";
+
+/* Class = "UITabBarItem"; title = "Report"; ObjectID = "D8x-pj-SND"; */
+"D8x-pj-SND.title" = "報告書";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "KeA-Y0-6Ml"; */
+"KeA-Y0-6Ml.normalTitle" = "キャンセル";
+
+/* Class = "UILabel"; text = "Calender"; ObjectID = "Qfm-70-IBb"; */
+"Qfm-70-IBb.text" = "Calender";
+
+/* Class = "UINavigationItem"; title = "Reports"; ObjectID = "QpN-y2-e6b"; */
+"QpN-y2-e6b.title" = "報告書";
+
+/* Class = "UINavigationItem"; title = "BBSs"; ObjectID = "TaW-mj-OO9"; */
+"TaW-mj-OO9.title" = "掲示板";
+
+/* Class = "UINavigationItem"; title = "Messages"; ObjectID = "WLA-PX-g7T"; */
+"WLA-PX-g7T.title" = "メッセージ";
+
+/* Class = "UINavigationItem"; title = "Workflow"; ObjectID = "YvC-VF-pM9"; */
+"YvC-VF-pM9.title" = "ワークフロー";
+
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "aGg-XL-WDt"; */
+"aGg-XL-WDt.normalTitle" = "送信";
+
+/* Class = "UINavigationItem"; title = "Messages"; ObjectID = "agg-v3-Nmf"; */
+"agg-v3-Nmf.title" = "メッセージ";
+
+/* Class = "UITabBarItem"; title = "Today"; ObjectID = "cPU-LT-S3J"; */
+"cPU-LT-S3J.title" = "Today";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "dzy-hN-jEh"; */
+"dzy-hN-jEh.title" = "設定";
+
+/* Class = "UITabBarItem"; title = "Workflow"; ObjectID = "h4T-dF-37T"; */
+"h4T-dF-37T.title" = "ワークフロー";
+
+/* Class = "UINavigationItem"; title = "BBS"; ObjectID = "hb9-hd-jkx"; */
+"hb9-hd-jkx.title" = "掲示板";
+
+/* Class = "UILabel"; text = "New Report"; ObjectID = "lM0-zN-bDd"; */
+"lM0-zN-bDd.text" = "New Report";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "oWI-xS-TJQ"; */
+"oWI-xS-TJQ.title" = "設定";
+
+/* Class = "UITabBarItem"; title = "Message"; ObjectID = "rGR-m5-zx5"; */
+"rGR-m5-zx5.title" = "メッセージ";
+
+/* Class = "UINavigationItem"; title = "Workflow"; ObjectID = "tse-Xe-uPg"; */
+"tse-Xe-uPg.title" = "ワークフロー";
+
+/* Class = "UINavigationItem"; title = "Report"; ObjectID = "zPX-QD-ZrX"; */
+"zPX-QD-ZrX.title" = "報告書";
