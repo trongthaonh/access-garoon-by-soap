@@ -1,0 +1,20 @@
+current directory: /Users/hadachi/Documents/Next Magic/FNS/JK/cips/vendor/bundle/gems/bson-4.0.4/ext/bson
+/Users/hadachi/.rbenv/versions/2.3.0/bin/ruby -r ./siteconf20160312-19293-b46tgd.rb extconf.rb
+creating Makefile
+
+current directory: /Users/hadachi/Documents/Next Magic/FNS/JK/cips/vendor/bundle/gems/bson-4.0.4/ext/bson
+make "DESTDIR=" clean
+
+current directory: /Users/hadachi/Documents/Next Magic/FNS/JK/cips/vendor/bundle/gems/bson-4.0.4/ext/bson
+make "DESTDIR="
+compiling native.c
+In file included from native.c:21:
+./native-endian.h:195:15: warning: unused function '__bson_double_swap_slow' [-Wunused-function]
+static double __bson_double_swap_slow(double v)
+              ^
+1 warning generated.
+linking shared-object native.bundle
+
+current directory: /Users/hadachi/Documents/Next Magic/FNS/JK/cips/vendor/bundle/gems/bson-4.0.4/ext/bson
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 native.bundle ./.gem.20160312-19293-12e6a0v
