@@ -1,13 +1,18 @@
 module Garoon
   class Synchronizer
+    def initialize(savon)
+      @client = Client.new(savon)
+    end
+
     def synchronize_bulletin
       added_topics = []
       modified_topics = []
       removed_topics = []
+      bulletin = @client.bulletin
 
-      @client.bulletin_get_topic_versions do |topic_items|
+      bulletin.get_topic_versions do |topic_items|
         topic_items.each do |topic_item|
-          #BulletinTopicVersion.new(topic_item).save
+          BulletinTopicVersion.new(topic_item).save
 
           topic = {
             _topic_id: topic_item[:@id],
@@ -26,13 +31,13 @@ module Garoon
       end
 
       # Todo: Store to our database, files and follows associated with topics.
-      @client.bulletin_get_topic_by_ids(added_topics) do |topics|
+      bulletin.get_topic_by_ids(added_topics) do |topics|
         topics.each do |topic|
           BulletinTopic.new(topic).save
         end
       end
 
-      @client.bulletin_get_topic_by_ids(modified_topics) do |topics|
+      bulletin.get_topic_by_ids(modified_topics) do |topics|
         topics.each do |topic|
           existing_topic = BulletinTopic.where(:@id => topic[:@id]).first
           existing_topic.attributes = topic
@@ -40,7 +45,7 @@ module Garoon
         end
       end
 
-      @client.bulletin_get_topic_by_ids(removed_topics) do |topics|
+      bulletin.get_topic_by_ids(removed_topics) do |topics|
         topics.each do |topic|
           BulletinTopic.where(:@id => topic[:@id]).destroy
         end
@@ -48,8 +53,6 @@ module Garoon
     end
 
     def run
-      @client = Client.new
-      # Todo: Instead of logging in here, receive a session cookie from the VPN server when a VPN connection is established.
       synchronize_bulletin
     end
   end
