@@ -1,6 +1,6 @@
 module ObjectEx
-  def ensure_array(obj)
-    yield obj.is_a?(Array) ? obj : [obj]
+  def ensure_array
+    self.is_a?(Array) ? self : [self]
   end
 end
 
