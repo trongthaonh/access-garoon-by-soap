@@ -5,32 +5,21 @@ module CIPS
 
     helpers do
       def savon
-        @@savon ||= Savon.new('http://10.211.55.38/cgi-bin/cbgrn/grn.cgi?WSDL')
+        @@savon ||= Savon.new(CIPS::Application.config.garoon_wsdl_url)
       end
     end
 
-    resource :'garoon' do
+    resource :garoon do
       desc 'Synchronize our database with Garoon server.'
-      get do
-        # Todo: Run in the backgounrd using ActiveJob
-        synchronizer = Garoon::Synchronizer.new(savon)
-        synchronizer.run
-      end
-    end
-
-    resource :'bbs' do
-      resource :'messages' do
-        desc 'Return all messages.'
+      resource :sync do
         get do
-          topics = []
-
-          BulletinTopic.all.each do |topic|
-            topics << { id: topic[:@id], subject: topic[:@subject], creator: topic[:creator][:@name], created_at: topic[:creator][:@date] }
-          end
-
-          topics
+          # Todo: Run in the backgounrd using ActiveJob
+          Garoon::Synchronizer::All.new(Garoon::Client.new(savon)).run
         end
       end
     end
+
+    mount CIPS::BulletinAPI
+    mount CIPS::MessageAPI
   end
 end

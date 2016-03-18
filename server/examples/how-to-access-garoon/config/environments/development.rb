@@ -36,3 +36,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
+
+CIPS::Application.configure do
+  config.garoon_wsdl_url = 'http://10.211.55.38/cgi-bin/cbgrn/grn.cgi?WSDL'
+end

@@ -15,7 +15,7 @@ module SavonEx
     tag = name
     '<%{tag}>%{body}</%{tag}>' % { tag: tag, body: body }
   end
- end
+end
 
 class Savon
   class Envelope

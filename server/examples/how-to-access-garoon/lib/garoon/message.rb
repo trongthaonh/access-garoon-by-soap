@@ -4,38 +4,26 @@ module Garoon
       @client = client
     end
 
-    def get_topic_versions
-      queried_table = QueriedTable.where(table_name: :bulletin_topic_versions).first_or_create
-      start_time = queried_table.last_queried_time
-      start_time ||= Time.gm(1970, 1, 2, 0, 0, 0)
-      end_time = Time.now
-      operation = @client.create_operation(:Bulletin, :BulletinGetTopicVersions)
-
-      operation.body = {
-        parameters: {
-          _start: start_time.iso8601,
-          _end: end_time.iso8601
+    def get_thread_versions
+      if block_given?
+        parameters = {
+          _start: Time.gm(1970, 1, 2, 0, 0, 0).iso8601
         }
-      }
 
-      # Todo: What if session cookie has been expired?
-      resp = operation.call.hash[:envelope][:body][:bulletin_get_topic_versions_response]
-      yield resp[:returns][:topic_item] if resp && resp[:returns]
-      queried_table.last_queried_time = end_time + 1
-      #queried_table.save
+        ret = @client.call_operation(:Message, :MessageGetThreadVersions, parameters)
+        yield ret && ret[:thread_item] ? ret[:thread_item].ensure_array : nil
+      end
     end
 
-    def get_topic_by_ids(topics)
-      operation = @client.create_operation(:Bulletin, :BulletinGetTopicByIds)
-
-      operation.body = {
-        parameters: {
-          topics: topics
+    def get_threads_by_id(thread_ids)
+      if block_given?
+        parameters = {
+          thread_id: thread_ids
         }
-      }
 
-      resp = operation.call.hash[:envelope][:body][:bulletin_get_topic_by_ids_response]
-      yield resp[:returns][:topic] if resp && resp[:returns]
+        ret = @client.call_operation(:Message, :MessageGetThreadsById, parameters)
+        yield ret && ret[:thread] ? ret[:thread].ensure_array : nil
+      end
     end
   end
 end
