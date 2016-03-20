@@ -29,7 +29,9 @@ module CIPS
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+    config.paths.add File.join('app', 'services'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+    config.autoload_paths += Dir[Rails.root.join('app', 'services', '*')]
     config.autoload_paths += %W(#{config.root}/lib)
   end
 end

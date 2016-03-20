@@ -1,10 +1,14 @@
+require 'singleton'
+
 module Garoon
   class Client
+    include Singleton
+
     attr_reader :bulletin
     attr_reader :message
 
-    def initialize(savon)
-      @savon = savon
+    def initialize
+      @savon = Savon.new(CIPS::Application.config.garoon_wsdl_url)
       @bulletin = Bulletin.new(self)
       @message = Message.new(self)
       # Todo: Instead of logging in here, receive a session cookie from the VPN server when a VPN connection is established.
@@ -35,6 +39,8 @@ module Garoon
       resp = operation.call.hash[:envelope][:body][((prefix ? prefix.to_s : action.to_s.underscore) + '_response').to_sym]
       resp && resp[:returns] ? resp[:returns] : nil
     end
+
+    private
 
     def login
       parameter = {

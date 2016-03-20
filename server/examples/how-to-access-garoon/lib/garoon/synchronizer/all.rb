@@ -1,12 +1,10 @@
 module Garoon
   module Synchronizer
     class All
-      def initialize(client)
-        @bulletin = Garoon::Synchronizer::Bulletin.new(client)
-      end
-
-      def run
-        @bulletin.run
+      class << self
+        def run
+          Garoon::Synchronizer::Bulletin.run
+        end
       end
     end
   end
